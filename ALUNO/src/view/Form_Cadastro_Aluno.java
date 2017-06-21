@@ -43,13 +43,14 @@ public class Form_Cadastro_Aluno extends javax.swing.JFrame {
         jLabel4 = new javax.swing.JLabel();
         jButton1 = new javax.swing.JButton();
         jPasswordField1 = new javax.swing.JPasswordField();
+        jLabel5 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jLabel1.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
         jLabel1.setText("Cadastro de Aluno");
-        getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 30, 160, 20));
+        getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 30, 160, 20));
 
         jLabel2.setText("Nome:");
         getContentPane().add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(39, 95, -1, -1));
@@ -68,8 +69,11 @@ public class Form_Cadastro_Aluno extends javax.swing.JFrame {
                 jButton1ActionPerformed(evt);
             }
         });
-        getContentPane().add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 320, 90, -1));
+        getContentPane().add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 310, 90, -1));
         getContentPane().add(jPasswordField1, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 240, 190, -1));
+
+        jLabel5.setText("(mínimo 4 digitos)");
+        getContentPane().add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 240, -1, 20));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -80,7 +84,7 @@ public class Form_Cadastro_Aluno extends javax.swing.JFrame {
         String senha = new String(jPasswordField1.getPassword());
 
         try {
-            if (nome.isEmpty() || login.isEmpty() || senha.isEmpty()) {
+            if (nome.isEmpty() || login.isEmpty() || senha.isEmpty() || senha.length() < 4) {
                 JOptionPane.showMessageDialog(null, "Preencha todos os campos", "ERRO", JOptionPane.ERROR_MESSAGE);
             } else if (!cad.validaAluno(login)) {
                 JOptionPane.showMessageDialog(null, "Usuário já cadastrado", "ERRO", JOptionPane.ERROR_MESSAGE);
@@ -143,6 +147,7 @@ public class Form_Cadastro_Aluno extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
+    private javax.swing.JLabel jLabel5;
     private javax.swing.JPasswordField jPasswordField1;
     private javax.swing.JTextField jTextField1;
     private javax.swing.JTextField jTextField2;
